@@ -7,7 +7,7 @@ import {getMatchInfo} from "../api/api";
 function GetMatches() {
 
     const [matches, setMatches] = useState([])
-
+    const limit = matches.slice(0,5);
     useEffect(() => {
         getMatchInfo().then((data) => {
             setMatches(data.matches);
@@ -19,7 +19,7 @@ function GetMatches() {
 
   return (
     <>
-        <Cricbuzz/>
+        <Cricbuzz key={limit.id} limit={limit}/>
     </>
   )
 }
